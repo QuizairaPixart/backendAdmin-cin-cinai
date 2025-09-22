@@ -33,7 +33,6 @@ const CreateAction = async (data) => {
       flagUpdate = updateAction.create // ? si updateo la flag omito logicas
       if (updateAction?.disablePreviousAction) res.push(updateAction.disablePreviousAction.id)
     } else {
-      // console.log(sanitize, 'linea 36')
       action = await createAction(sanitize)
     }
     if (sanitize.action === 'tracking') {
@@ -41,7 +40,7 @@ const CreateAction = async (data) => {
     }
 
     // ? si se updatea se usa el flag para evitar que intente volver a asociar a los equipos/grupos a una accion que ya esta asociada
-    if (sanitize.devicesId.length !== 0 && flagUpdate) {
+    if (sanitize.devicesId.length !== 0 && flagUpdate && sanitize.groupsId.length === 0) {
       for (const device of sanitize.devicesId) {
         try {
           await action.addDevices(device)

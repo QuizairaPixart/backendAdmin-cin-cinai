@@ -1,13 +1,12 @@
-const { establishments } = require('../../models/Psql/EstablishmentsModel')
 const { SequelizeError } = require('../../middlewares/errors/AppError')
+const { establishments } = require('../../models/Psql/EstablishmentsModel')
 
-const createEstablishments = async (data) => {
+const readEstablishments = async (id, tables = null) => {
   try {
-    await establishments.bulkCreate(data).then((res) => {
-      console.log('establecimientos creados con éxito!', res.length)
-    })
-
-    return true
+    let data
+    if (!id) data = await establishments.findAll({ include: tables })
+    else data = await establishments.findOne({ where: id, include: tables })
+    return data
   } catch (e) {
     throw new SequelizeError(
       e.name,
@@ -18,4 +17,4 @@ const createEstablishments = async (data) => {
   }
 }
 
-module.exports = { createEstablishments }
+module.exports = { readEstablishments }

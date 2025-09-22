@@ -16,7 +16,6 @@ const OriginIsAllowed = async (socket) => {
       const userId = headers.userId ? headers.userId : null
       const token = headers.token ? headers.token : null
 
-      console.log(userId, 'linea 19')
       const userDB = await ClientPSQL.readUser({ id: userId })
       if (userDB) {
         jwt.verify(token, userDB.session_id, (err, verify) => {

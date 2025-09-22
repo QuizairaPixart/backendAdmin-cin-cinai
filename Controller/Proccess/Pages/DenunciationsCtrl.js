@@ -23,11 +23,8 @@ const GetDenunciations = async (req, res = { status: 500, send: { auth: false } 
 const PostDenunciations = async (req, res = { status: 500, send: { auth: false } }) => {
   const denunciation = await postDenunciation(req?.body)
 
-  if (denunciation.result === false) {
+  if (denunciation) {
     res.status = 200
-    res.send = 'el número de denuncia ya se encuentra registrado'
-  } else {
-    res.status = 201
     res.send = denunciation
   }
   return res

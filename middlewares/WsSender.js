@@ -171,6 +171,7 @@ const SendPreferences = async (req, res) => {
 
   res.status(200).send({ result: true, sendings: [] })
 }
+
 const SendSafewebLists = async (req, res) => {
   let data = {}
   if (req?.body?.keyword) data = req?.body

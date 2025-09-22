@@ -51,6 +51,8 @@ const {
   Notifications,
   Leases,
   StatsDevice,
+  Events,
+  Establishments,
   PdfProcess
 } = require('../Controller/Http/HttpCtrl')
 
@@ -94,6 +96,7 @@ router.get('/device/debug-log/:id', TryCatch(DeviceDebugLog))
 router.get('/allTrackings/:id', TryCatch(AllTracking))
 router.get('/device/applications/:id', TryCatch(DeviceApplications))
 router.get('/groups', TryCatch(Groups))
+router.get('/establishments', TryCatch(Establishments))
 router.get('/group/applications', TryCatch(GroupApplications))
 router.get('/group/:id', TryCatch(Group))
 router.get('/preferences/:id', TryCatch(Preferences))
@@ -117,6 +120,8 @@ router.get('/reports/role/:id', TryCatch(Role))
 router.get('/reports/charts/:chart', TryCatch(Home))
 router.get('/reports/safeweb/queryList/:date', TryCatch(SfwbHomeQueryList))
 router.get('/reports/safeweb/search/:chart', TryCatch(SfwbHomeSearch))
+router.get('/events/softwareEvents', TryCatch(Events))
+router.get('/events/devicesEvents', TryCatch(Events))
 router.get('/geofences', TryCatch(Geofences))
 router.get('/geofence/:id', TryCatch(Geofence))
 router.get('/config-geofence', TryCatch(ConfigGeofences))
@@ -167,8 +172,7 @@ router.post('/safeweb/keyWords', TryCatch(SfwbKeyWords), TryCatch(SendSafewebLis
 
 //* Subida de archivos
 router.post('/upload/:path', publicDir, upload, TryCatch(Upload))
-
-// crea pdfs
+//* bajar a pdf
 router.post('/process-pdf', publicDir, TryCatch(PdfProcess))
 
 // PUT actualizar
@@ -193,6 +197,7 @@ router.put('/denunciations', TryCatch(Denunciations))
 router.put('/missing-devices', TryCatch(MissingDevices))
 router.put('/notifications', TryCatch(Notifications))
 router.put('/lease', TryCatch(Leases))
+router.put('/establishments', TryCatch(Establishments))
 
 // SAFEWEB
 router.put('/safeweb/blackList', TryCatch(SfwbBlack), TryCatch(SendSafewebLists))

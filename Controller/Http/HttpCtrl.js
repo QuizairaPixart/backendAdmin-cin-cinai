@@ -87,6 +87,8 @@ const { GetDenunciations, PostDenunciations, PutDenunciations } = require('../Pr
 const { PostMissingDevices, PutMissingDevices } = require('../Proccess/Pages/MissingDevicesCtrl')
 const { GetReports } = require('../Proccess/Pages/ReportsCtrl')
 const { GetLeases, PostLeases, PutLeases } = require('../Proccess/Pages/LeasesCtrl')
+const { GetEvents } = require('../Proccess/Pages/EventsCtrl')
+const { GetEstablishments, PutEstablishment } = require('../Proccess/Pages/EstablishmentsCtrl')
 const { PdfCreate } = require('../Proccess/Actions/PdfCreate')
 
 const Prueba = async (req, res) => {
@@ -321,6 +323,19 @@ const Group = async (req, res) => {
     res.status(response.status).send(response.send)
   } catch (e) {
     throwAppError(e, 'ERR_GROUP')
+  }
+}
+
+const Establishments = async (req, res) => {
+  try {
+    console.log('http establishments')
+    let response = null
+    if (req.method === 'PUT') response = await PutEstablishment(req)
+    else if (req.method === 'GET') response = await GetEstablishments(req)
+
+    res.status(response.status).send(response.send)
+  } catch (e) {
+    throwAppError(e, 'ERR_ESTABLISHMENTS')
   }
 }
 
@@ -716,6 +731,17 @@ const Leases = async (req, res) => {
     throwAppError(e, 'ERR_LEASES')
   }
 }
+const Events = async (req, res = { status: 500, send: { auth: false } }) => {
+  try {
+    console.log('http events')
+
+    const response = await GetEvents(req)
+
+    if (response) res.status(response.status).send(response.send)
+  } catch (e) {
+    throwAppError(e, 'ERR_EVENTS')
+  }
+}
 
 const download = async (req, res) => {
   try {
@@ -735,7 +761,7 @@ const download = async (req, res) => {
 const PdfProcess = async (req, res) => {
   let response
   if (req.method === 'POST') response = await PdfCreate(req.body)
-  res.status(response?.status ?? 500).send(response.filePath)
+  res.status(response?.status ?? 500).send(response?.send)
 }
 
 module.exports = {
@@ -756,6 +782,7 @@ module.exports = {
   Maps,
   Groups,
   Group,
+  Establishments,
   GroupPreferences,
   GroupApplications,
   Applications,
@@ -788,7 +815,7 @@ module.exports = {
   Denunciations,
   MissingDevices,
   Leases,
-  PdfProcess,
-  download
-
+  Events,
+  download,
+  PdfProcess
 }

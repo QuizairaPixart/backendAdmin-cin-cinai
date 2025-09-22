@@ -19,6 +19,7 @@ rxRouter
   .post('/change_preferences_client/:id', TryCatch(changePreferencesClient))
   .post('/change_preferences_device/:id', TryCatch(changePreferencesDevice))
   .post('/change_preferences_project', TryCatch(changePreferencesProject))
+  .post('/change_preferences_project', TryCatch(changePreferencesProject))
   .post('/license_activation', TryCatch(licenseActivation))
   .put('/preferences', TryCatch(preferences))
 

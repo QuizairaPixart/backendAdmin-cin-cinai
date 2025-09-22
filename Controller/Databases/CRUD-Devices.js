@@ -118,7 +118,7 @@ const readDevicesLocationsReports = async (dateFilter = null) => {
 // Update devices
 const updateDevice = async (id, data, table) => {
   try {
-    delete data.last_date
+    delete data?.last_date
     const device = await devices.update(data, { where: id, ...table })
     return device
   } catch (e) {

@@ -66,7 +66,7 @@ const deleteLossReport = async (id) => {
 }
 
 const updateOrCreateLossReport = async (id, userId) => {
-  console.log({ id, userId })
+  // console.log({ id, userId })
   const actions = await readAction({ id }, 'devices')
 
   let statusLock
@@ -84,15 +84,18 @@ const updateOrCreateLossReport = async (id, userId) => {
       // eslint-disable-next-line camelcase
       if (data?.photo?.status && data?.order_id) newLoss.thiefId = (await readThief({ order_id: data?.order_id })).id
     // eslint-disable-next-line camelcase
-    } else if (action === 'tracking' && data?.statusTracking && data?.order_id) newLoss.trackingId = (await readTracking({ order_id: data?.order_id }))[0].id
+    } else if (action === 'tracking' && data?.statusTracking && data?.order_id) {
+      newLoss.trackingId = (await readTracking({ order_id: data?.order_id, deviceId: devices[0].id }))[0].id
+    }
   }
-  console.log(newLoss, 'linea 89')
-  if (statusLock) { createLossReport(newLoss) } else {
+  if (statusLock) { await createLossReport(newLoss) } else {
     // console.log(newLoss.deviceId)
     const updateLoss = await lossReports.findOne({ where: { deviceId: newLoss.deviceId }, order: [['id', 'DESC']] })
     // console.log({ updateLoss })
-    updateLoss.finish_date = Date.now()
-    updateLoss.save()
+    if (updateLoss) {
+      updateLoss.finish_date = Date.now()
+      updateLoss.save()
+    }
   }
 }
 
