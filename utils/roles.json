@@ -1,0 +1,223 @@
+{
+  "roles": {
+    "roleName": "Administrador",
+    "homePage": {
+      "diskChartHome": true,
+      "ramChartHome": true,
+      "connectionsChartHome": true,
+      "locationMapHome": true,
+      "appsUseTimeChartHome": true,
+      "missingDevicesChartHome": true,
+      "devicesUseTimeChartHome": true,
+      "devicesConnectionsChartHome": true,
+      "notificationsHome": true
+    },
+    "devicesPage": {
+      "columDataTableDevices": [
+        {
+          "sistem": "all",
+          "field": "status_lock",
+          "header": "Estado de bloqueo",
+          "disabled": true
+        },
+        {
+          "sistem": "all",
+          "field": "type",
+          "header": "Tipo de equipo",
+          "disabled": true
+        },
+        {
+          "sistem": "all",
+          "field": "id_user",
+          "header": "Usuario del Dispositivo",
+          "disabled": true
+        },
+        {
+          "sistem": "all",
+          "field": "so",
+          "header": "Sistema Operativo",
+          "disabled": false
+        },
+        {
+          "sistem": "all",
+          "field": "model",
+          "header": "Modelo",
+          "disabled": false
+        },
+        {
+          "sistem": "all",
+          "field": "serial_number",
+          "header": "Número de Serie",
+          "disabled": false
+        },
+        {
+          "sistem": "all",
+          "field": "identity",
+          "header": "Identificador",
+          "disabled": true
+        },
+        {
+          "sistem": "all",
+          "field": "last_date",
+          "header": "Última Conexión",
+          "disabled": false
+        },
+        {
+          "sistem": "all",
+          "field": "establishmentCode",
+          "header": "Código de establecimiento",
+          "disabled": true
+        }
+      ],
+      "newGroupInDevices": true,
+      "actionSendMessageInDevices": true,
+      "selectRowsDataTableInDevices": true,
+      "removeDevicesInDevices": true,
+      "seeDashboardInDevices": true
+    },
+    "dashboardDevicePage": {
+      "idCard": true,
+      "modelCard": true,
+      "serialNumberCard": true,
+      "lastConnectionCard": true,
+      "soCard": true,
+      "statusDeviceCard": true,
+      "codeEstablishment": true,
+      "addressEstablishment": true,
+      "diskChartDashboardDevice": true,
+      "ramChartDashboardDevice": true,
+      "devicesUseTimeChart": true,
+      "battery": true,
+      "lastLocationMap": true,
+      "moreLocationsButton": true,
+      "moreConnectionsButton": true,
+      "connectionsVerticalBar": true,
+      "buttonSpeedDial": true,
+      "actionShutdown": true,
+      "actionReboot": true,
+      "actionWipe": true,
+      "actionSendMessage": true,
+      "actionSendCommand": true,
+      "actionContentDownload": true,
+      "actionBackgroundChange": true,
+      "actionReports": true,
+      "actionLockDevice": true,
+      "actionActivateDevice": true,
+      "actionApplications": true,
+      "actionInstallApplications": true,
+      "actionEstablishment": true,
+      "actionDeleteFolders": true,
+      "actionLockScreen": true,
+      "actionModifyScreenBrightness": true,
+      "actionMissingDevice": true,
+      "exportPdfInAllDevicesConnections": true,
+      "exportCsvInAllDevicesConnections": true
+    },
+    "groupsPage": {
+      "newGroup": true,
+      "exportPdfGroups": true,
+      "exportCsvGroups": true,
+      "removeGroups": true,
+      "seeDashboardGroup": true
+    },
+    "dashboardGroupPage": {
+      "addUsers": true,
+      "deleteUsers": true,
+      "selectRowsDataTableUsers": true,
+      "addDevices": true,
+      "deleteDevices": true,
+      "selectRowsDataTableDevices": true,
+      "addGeofences": true,
+      "deleteGeofences": true,
+      "selectRowsDataTableGeofences": true,
+      "buttonSpeedDial": true,
+      "actionShutdown": true,
+      "actionReboot": true,
+      "actionSendMessage": true,
+      "actionContentDownload": true,
+      "actionBackgroundChange": true,
+      "actionLockDevices": true,
+      "actionUnlockDevices": true,
+      "actionInstallApplication": true,
+      "actionUninstallApplication": true,
+      "actionUseTimePreferences": true,
+      "actionDeletePreferences": true,
+      "actionLeasingGroup": true
+    },
+    "usersPage": {
+      "newGroupUser": true,
+      "newUserUser": true,
+      "removeUsersUser": true,
+      "editUsersUser": true,
+      "selectRowsDataTableUser": true
+    },
+    "applicationsPage": {
+      "editCategoryApplication": true,
+      "exportPdfApplications": true,
+      "exportCsvApplications": true
+    },
+    "rolesPage": {
+      "newRol": true,
+      "exportPdfRoles": true,
+      "exportCsvRoles": true,
+      "removeRole": true,
+      "editRole": true
+    },
+    "geofencesPage": {
+      "newGeocerca": true,
+      "removeGeocercas": true,
+      "seeInformationGeocerca": true,
+      "editGeocerca": true
+    },
+    "safeWebHomePage": {},
+    "safeWebListsPage": {},
+    "safeWebWordsPage": {},
+    "safeWebPreferencesPage": {},
+    "preferencesSettingsPage": {
+      "times": true,
+      "locations": true,
+      "reports": true
+    },
+    "preferencesReportsPage": {
+      "reports": true
+    },
+    "preferencesLossesPage": {
+      "defaultConfiguration": true,
+      "editLockSettings": true
+    },
+    "preferencesUseTimePage": {
+      "restriction": true,
+      "editRestrictionSettings": true
+    },
+    "preferencesGeofencePage": {
+      "actionsGeofences": true
+    },
+    "preferencesRxartSecurePage": {
+      "parameters": true,
+      "messages": true
+    },
+    "preferencesServerPage": {},
+    "preferencesAgentPage": {
+      "downloadAndroidAgent": true,
+      "downloadWindowsAgent": true
+    },
+    "reportsPage": {
+      "lastLocationReport": true,
+      "reportedDevicesReport": true,
+      "missingDevicesReport": true,
+      "deviceHardwareReport": true,
+      "devicesReport": true,
+      "deviceActivationReport": true,
+      "usersReport": true,
+      "geofencesReport": true,
+      "exportPdfInReport": true,
+      "exportCsvInReport": true
+    },
+    "softwareEventsPage": {},
+    "devicesEventsPage": {},
+    "establishmentsPage": {
+      "exportPdf": true,
+      "exportCsv": true
+    }
+  }
+}

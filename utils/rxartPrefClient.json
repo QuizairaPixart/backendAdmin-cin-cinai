@@ -1,0 +1,15 @@
+{
+  "rxartPrefClient": {
+    "id": 1,
+    "clientId": 1,
+    "name": "Pixart",
+    "iniTimeout": 360,
+    "lastDate": 60,
+    "tolerance": 2,
+    "maxBoots": 100,
+    "fInterval": 5,
+    "msgIT": "Configuración de seguridad del firmware!\n----------------------------!!",
+    "msgBW": "Tu licencia está a punto de caducar...\nQuizás llevas mucho tiempo sin conexión a Internet.",
+    "msgBT": "¡ESTA UNIDAD ESTÁ BLOQUEADA!\n\nLo sentimos, pero parece que hay un problema con tu cuenta o una dificultad técnica que provocó el bloqueo! \nVerifique el estado de su cuenta con su proveedor."
+  }
+}
